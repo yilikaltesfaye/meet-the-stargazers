@@ -2,7 +2,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useState, useEffect } from "react";
 
-export default () => {
+export default ({onChoice}) => {
     const [cast, setCast] = useState([0])
 
     async function fetchCast () {
@@ -23,7 +23,7 @@ export default () => {
         }}>
             {
                 cast.map(member => (
-                    <a key={member.id} data-tooltip={member.name}>
+                    <a onClick={() => {onChoice(member)}} key={member.id} data-tooltip={member.name}>
                         <img src={`images/${member.slug}_tn.svg`} alt={member.name} />
                     </a>
                 ))
