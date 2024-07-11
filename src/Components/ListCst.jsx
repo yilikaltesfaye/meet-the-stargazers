@@ -1,19 +1,8 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 /* eslint-disable react-refresh/only-export-components */
-import { useState, useEffect } from "react";
 
-export default ({onChoice}) => {
-    const [cast, setCast] = useState([0])
-
-    async function fetchCast () {
-        const response = await fetch('cast.json');
-        setCast(await response.json());
-    }
-
-    useEffect(() => {
-        fetchCast();
-    });
-
+export default ({cast, onChoice}) => {
     return (
         <div style={{
             display: "grid",
