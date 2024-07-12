@@ -2,6 +2,7 @@
 import React, { useEffect , useState} from "react";
 import ListCst from "./Components/ListCst";
 import Modals from "./Components/Modals";
+import Nav from "./Components/Nav";
 
 function App() {
   let [memberInfo, setMemberInfo] = useState(null)
@@ -15,15 +16,18 @@ function App() {
       fetchCast();
   });
   return (
-    <div className="container">
-        <hgroup>
-          <img src="images/group.svg" alt="StarGazers Group" />
-          <h1>Meet the <i>StarGazers</i> </h1>
-          <p>Members of an <b>intergalactic alliance</b> paving the way for peace and benevolence among all species. They are known for their enthusiasm for science, for their love of fun, and their dedication to education.</p>
-          <ListCst cast={cast} onChoice={ (info) => {setMemberInfo(info)}}/>
-          { memberInfo && <Modals member={memberInfo}  handleClose={() => {setMemberInfo(null)}}/> }
-        </hgroup>
-    </div>
+    <>
+      <Nav cast= { cast } onChoice={(info) => {setMemberInfo(info)}} />
+      <div className="container">
+          <hgroup>
+            <img src="images/group.svg" alt="StarGazers Group" />
+            <h1>Meet the <i>StarGazers</i> </h1>
+            <p>Members of an <b>intergalactic alliance</b> paving the way for peace and benevolence among all species. They are known for their enthusiasm for science, for their love of fun, and their dedication to education.</p>
+            <ListCst cast={cast} onChoice={ (info) => {setMemberInfo(info)}}/>
+            { memberInfo && <Modals member={memberInfo}  handleClose={() => {setMemberInfo(null)}}/> }
+          </hgroup>
+      </div>
+    </>
   )
 }
 
