@@ -1,8 +1,9 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React, { useEffect , useState} from "react";
 import ListCst from "./Components/ListCst";
 import Modals from "./Components/Modals";
 import Nav from "./Components/Nav";
+import "./App.scss";
 
 function App() {
   let [memberInfo, setMemberInfo] = useState(null)
@@ -24,7 +25,7 @@ function App() {
             <h1>Meet the <i>StarGazers</i> </h1>
             <p>Members of an <b>intergalactic alliance</b> paving the way for peace and benevolence among all species. They are known for their enthusiasm for science, for their love of fun, and their dedication to education.</p>
             <ListCst cast={cast} onChoice={ (info) => {setMemberInfo(info)}}/>
-            { memberInfo && <Modals member={memberInfo}  handleClose={() => {setMemberInfo(null)}}/> }
+            { memberInfo && <Modals member={memberInfo} handleChange={(info) => {setMemberInfo(cast[info])}}  handleClose={() => {setMemberInfo(null)}}/> }
           </hgroup>
       </div>
     </>
