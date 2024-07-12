@@ -15,13 +15,18 @@ export default ({member, handleClose, handleChange}) => {
                         <hgroup>
                             <h1>{member.name}</h1>
                             <p>{member.bio}</p>
-                            <hgroup style={{gap:'1rem'}}>
+                            <hgroup style={{
+                                display:"flex",
+                                gap: "1rem",
+                                marginTop: "1rem",
+                                justifyContent: "space-between"
+                            }}>
                                 <a href="#" className="outline" role="button"
                                     onClick={() => {handleChange(Number(member.id) - 1)}}
-                                >Previous</a>
+                                ><span className="material-symbols-outlined">arrow_back</span></a>
                                 <a href="#" className="outline" role="button"
                                     onClick={() => {handleChange(Number(member.id) + 1)}}
-                                >Next</a>
+                                ><span className="material-symbols-outlined">arrow_forward</span></a>
                             </hgroup>
                         </hgroup>
                     </div>
