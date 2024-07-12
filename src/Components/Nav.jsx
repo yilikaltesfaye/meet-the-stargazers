@@ -2,18 +2,19 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable react/display-name */
 /* eslint-disable react-refresh/only-export-components */
+import "./nav.scss"
 export default ({cast, onChoice}) => {
     return (
         <nav className="container">
             <ul>
                 <li>
                     <details role="list">
-                        <summary aria-haspopup="listbox" role="link">cast</summary>
+                        <summary aria-haspopup="listbox" role="link">Cast</summary>
                         <ul role="listbox">
                             { cast.map(member => (
                                 <li key={member.id}>
                                     <a onClick={() => {onChoice(member)}} 
-                                    data-tooltip={member.name}>{member.name}</a>
+                                    >{member.name}</a>
                                 </li>
                             ))}
                         </ul>
